@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <scraper date="2015-09-11" content="movies" framework="1.0" language="cs">
 
+<!-- user agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0 -->
+
   <NfoUrl dest="3">
-   <RegExp input="$$1" output="&lt;url&gt;http://www.csfd.cz/film/\1&lt;/url&gt;&lt;id&gt;\1&lt;/id&gt;" dest="3">
-      <expression>https?://(?:www\.)?csfd\.cz/film/(\d+-.*?)/</expression>
+   <RegExp input="$$1" output="&lt;url&gt;http://www.csfd.cz/film/\1&lt;/url&gt;&lt;id&gt;\1|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/id&gt;" dest="3">
+      <expression>https?://(?:www\.)?csfd\.cz/film/(\d+-.*?)|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0/</expression>
    </RegExp>
   </NfoUrl> 
   
   <CreateSearchUrl dest="3">
-    <RegExp input="$$1" output="&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz/hledat/?q=\1%20.&lt;/url&gt;" dest="3">
+    <RegExp input="$$1" output="&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz/hledat/?q=\1%20.|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/url&gt;" dest="3">
       <RegExp input="$$2" output="+\1" dest="1+">
         <expression>(\d+)</expression>
       </RegExp>
@@ -34,12 +36,12 @@
     <RegExp input="$$5" output="&lt;?xml version=&quot;1.0&quot; gzip=&quot;yes&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;&lt;results sorted=&quot;yes&quot;&gt;\1&lt;/results&gt;" dest="8">
  
 			<!-- hlavni nadpis -->
-      <RegExp input="$$1" output="&lt;entity&gt;&lt;title&gt;\2 (\3)&lt;/title&gt;&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz\1&lt;/url&gt;&lt;/entity&gt;" dest="5">
+      <RegExp input="$$1" output="&lt;entity&gt;&lt;title&gt;\2 (\3)&lt;/title&gt;&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz\1|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/url&gt;&lt;/entity&gt;" dest="5">
         <expression repeat="yes" noclean="1">subject&quot;&gt;&lt;a href=&quot;(/film/[^&quot;]*)&quot; class=&quot;film c.&quot;&gt;([^&lt;]*)&lt;/a&gt;.*?&lt;p&gt;([^&lt;]*)&lt;</expression>
       </RegExp>
 
       <!-- vedlejsi nabidka s rokem -->
-      <RegExp input="$$1" output="&lt;entity&gt;&lt;title&gt;\2 (\3)&lt;/title&gt;&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz\1&lt;/url&gt;&lt;/entity&gt;" dest="5+">
+      <RegExp input="$$1" output="&lt;entity&gt;&lt;title&gt;\2 (\3)&lt;/title&gt;&lt;url gzip=&quot;yes&quot;&gt;http://www.csfd.cz\1|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/url&gt;&lt;/entity&gt;" dest="5+">
         <expression repeat="yes" noclean="1">&quot;(/film/[^&quot;]*)&quot; class=&quot;film c.&quot;&gt;([^&lt;]*)&lt;/a&gt; &lt;span class=&quot;film-year&quot;&gt;\(([0-9]*)\)</expression>
       </RegExp>           
 	
@@ -106,7 +108,7 @@
       </RegExp>
 
       <!-- csfd thumb -->
-      <RegExp conditional="csfd_poster" input="$$1" output="&lt;thumb&gt;http://\1&lt;/thumb&gt;" dest="8+">
+      <RegExp conditional="csfd_poster" input="$$1" output="&lt;thumb&gt;http://\1|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/thumb&gt;" dest="8+">
         <expression noclean="1">(img.csfd.cz/files/images/film/posters[^&quot;]*)&quot;</expression>
       </RegExp>          
       
