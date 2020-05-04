@@ -1,6 +1,8 @@
-﻿[B]3.6[/B]
-[added] modified user-agent
+﻿[B]3.7[/B]
+[fixed] snadalone czech title, when imdb didnt find anything
 
+[B]3.6[/B]
+[added] modified user-agent
 
 [B]3.5c[/B]
 [fixed]stahovani posteru z csfd a imdb fix
