@@ -21,10 +21,7 @@
 	<ParseTitle clearbuffers="no" dest="5">
 			<RegExp input="$$6" output="&lt;details&gt;\1&lt;/details&gt;" dest="5">  		
 
-			<RegExp conditional="!original_title" input="$$1" output="&lt;title&gt;$$7 (\1)&lt;/title&gt;&lt;originaltitle&gt;\1&lt;/originaltitle&gt;" dest="6">
-				<expression fixchars="1">&quot;title&quot;:&quot;([^&quot;]*)</expression>
-			</RegExp>
-			<RegExp conditional="original_title" input="$$1" output="&lt;title&gt;\1 ($$7)&lt;/title&gt;&lt;originaltitle&gt;\1&lt;/originaltitle&gt;" dest="6">
+			<RegExp input="$$1" output="&lt;title&gt;$$7&lt;/title&gt;&lt;originaltitle&gt;\1&lt;/originaltitle&gt;" dest="6">
 				<expression fixchars="1">&quot;title&quot;:&quot;([^&quot;]*)</expression>
 			</RegExp>
 			<expression noclean="1" />

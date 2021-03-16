@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
     <setting label="30000" type="bool" id="csfd_poster" default="false"/>
-    <setting label="30001" type="bool" id="original_title" default="true"/>
 </settings>
