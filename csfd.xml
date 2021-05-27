@@ -55,6 +55,7 @@
 			
 			<!-- csfd thumb -->
 			<!-- <RegExp input="$$1" output="&lt;thumb&gt;https://image.pmgstatic.com/cache/resized/w420/files/images/film/posters\1|user-agent=Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20120101 Firefox/33.0&lt;/thumb&gt;" dest="8+">-->
+			<!-- https://image.pmgstatic.com/files/images/film/posters/165/056/165056256_58525c.jpg -->
 			<RegExp input="$$1" output="&lt;thumb&gt;https://image.pmgstatic.com/cache/resized/w420/files/images/film/posters\1&lt;/thumb&gt;" dest="8+">
 				<expression repeat="no" noclean="1">image\.pmgstatic\.com.*posters([^ ]*)</expression>
 			</RegExp>
