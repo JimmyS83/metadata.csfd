@@ -18,5 +18,8 @@
     <description lang="cs">Stahuje informace o filmech z ČSFD.cz
 </description>
     <platform>all</platform>
+	<assets>
+      <icon>icon.png</icon>
+    </assets>
   </extension>
 </addon>
